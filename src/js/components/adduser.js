@@ -24,8 +24,8 @@ class AddUser extends Component{
   render(){
     return(
       <div id='input-form'>
-        <input type='text' ref='input' />
-        <button onClick={this.addUser}>Send</button>
+        <input type='text' ref='input' placeholder='Add new user' />
+        <button onClick={this.addUser}>Add</button>
       </div>
     )
   }

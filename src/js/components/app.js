@@ -6,16 +6,8 @@ import UsersList from './userslist.js'
 
 
 class App extends Component{
-  // handleUserDelete(user){
-  //   let userId = user.id;
-  //   let newUsers = this.state.users.filter(function(user) {
-  //     return user.id !== userId;
-  //   });
-  //   this.setState({ users: newUsers });
-  // }
 
   render(){
-    // console.log(this.props.testStore.adduser);
     return(
       <div>
         <AddUser />
