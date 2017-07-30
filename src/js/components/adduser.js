@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import * as actions from './actions/actions'
 
 
 class AddUser extends Component{
@@ -31,13 +33,16 @@ class AddUser extends Component{
   }
 }
 
-export default connect(
-  state => ({
-    testStore: state.adduser
-  }),
-  dispatch => ({
-    onAddUser: (userName) => {
-      dispatch({ type: 'ADD_USER', payload: userName });
-    }
-  })
-)(AddUser);
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actions, dispatch);
+}
+
+function mapStateToProps(state) {
+    return {
+        stateFromReducer: state.adduser
+    };
+}
+
+const AddUserConnected = connect(mapStateToProps, mapDispatchToProps)(AddUser);
+export default AddUserConnected;

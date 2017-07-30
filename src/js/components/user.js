@@ -7,15 +7,18 @@ class User extends Component{
     return (
       <li>
         {this.props.children} 
-        <span className='delete' onClick={this.props.onDelete}>x</span>
+        <span className='delete' onClick={this.props.delUser}>x</span>
       </li>
     )
   }
 }
 
-export default connect(
-  state => ({
-    testStore: state.adduser
-  }),
-  dispatch => ({})
-)(User);
+
+function mapStateToProps(state) {
+    return {
+        stateFromReducer: state.adduser
+    };
+}
+
+const UserConnected = connect(mapStateToProps)(User);
+export default UserConnected;

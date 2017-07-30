@@ -18,9 +18,4 @@ class App extends Component{
   }
 }
 
-export default connect(
-  state => ({
-    testStore: state.adduser
-  }),
-  dispatch => ({})
-)(App);
+export default App

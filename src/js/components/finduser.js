@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import * as actions from './actions/actions'
 
 
 class FindUser extends Component{
@@ -9,7 +11,7 @@ class FindUser extends Component{
   }
 
   findUser(){
-    this.props.onFindUser(this.refs.search.value)
+    this.props.onFindUser(this.refs.search.value);
   }
 
   render(){
@@ -21,14 +23,16 @@ class FindUser extends Component{
   }
 }
 
-export default connect(
-  state => ({
-    // cons: console.log(state.adduser.filter(user => user.name.includes(state.filteruser))),
-    testStore: state.adduser.filter(user => user.name.includes(state.filteruser))
-  }),
-  dispatch => ({
-    onFindUser: (userName) => {
-      dispatch({ type: 'FIND_USER', payload: userName });
-    }
-  })
-)(FindUser);
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actions, dispatch);
+}
+
+function mapStateToProps(state) {
+    return {
+        stateFromReducer: state.adduser.filter(user => user.name.includes(state.filteruser))
+    };
+}
+
+const FindUserConnected = connect(mapStateToProps, mapDispatchToProps)(FindUser);
+export default FindUserConnected;
