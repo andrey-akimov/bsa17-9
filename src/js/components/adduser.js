@@ -3,42 +3,29 @@ import { connect } from 'react-redux'
 
 
 class AddUser extends Component{
-  // constructor(){
-  //   super();
-  //   this.state = {
-  //     user: ''
-  //   }
-  //   this.pushUser = this.pushUser.bind(this);
-  //   this.onTextChange = this.onTextChange.bind(this);
-  // }
+  constructor(){
+    super();
+    this.addUser = this.addUser.bind(this);
+  }
 
-  // pushUser(){
-  //   if(this.state.user != ''){
-  //     let newUser = {
-  //       name: this.state.user,
-  //       id: Date.now()
-  //     };
-  //     this.props.onUserAdd(newUser);
-  //     this.setState({ user: '' });
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
-  // onTextChange(e) {
-  //   this.setState({ user: e.target.value });
-  // }
-
-  addTrack(){
-    this.props.onAddTrack(this.refs.input.value);
-    this.refs.input.value = '';
+  addUser(){
+    if(this.refs.input.value != ''){
+      let newUser = {
+        name: this.refs.input.value,
+        id: Date.now()
+      };
+      this.props.onAddUser(newUser);
+      this.refs.input.value = '';
+    } else {
+      return false;
+    }
   }
 
   render(){
     return(
       <div id='input-form'>
         <input type='text' ref='input' />
-        <button onClick={this.addTrack.bind(this)}>Send</button>
+        <button onClick={this.addUser}>Send</button>
       </div>
     )
   }
@@ -49,8 +36,8 @@ export default connect(
     testStore: state
   }),
   dispatch => ({
-    onAddTrack: (trackName) => {
-      dispatch({ type: 'ADD_TRACK', payload: trackName });
+    onAddUser: (userName) => {
+      dispatch({ type: 'ADD_USER', payload: userName });
     }
   })
 )(AddUser);

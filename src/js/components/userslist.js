@@ -8,8 +8,8 @@ class UsersList extends Component{
     return(
       <ul id='userList'>
          {
-          this.props.testStore.map(function(user, index){
-            return <User key={index} > {user} </User>
+          this.props.testStore.map(function(user){
+            return <User key={user.id} > {user.name} </User>
           })
         } 
       </ul>

@@ -11,14 +11,11 @@ import UsersList from './components/userslist.js'
 import User from './components/user.js'
 import AddUser from './components/adduser.js'
 
-const initialState = [
-    'Smels',
-    'Enter'
-];
+const initialState = [];
 
 // Редьюсер получает предыдущий state и action и возвращает новый state, обновляет store при выстреле action
 function playlist(state = initialState, action){
-    if(action.type === 'ADD_TRACK'){
+    if(action.type === 'ADD_USER'){
         return [
             ...state,
             action.payload
