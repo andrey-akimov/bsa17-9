@@ -15,7 +15,7 @@ class User extends Component{
 
 export default connect(
   state => ({
-    testStore: state
+    testStore: state.adduser
   }),
   dispatch => ({})
 )(User);

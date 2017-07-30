@@ -33,7 +33,7 @@ class AddUser extends Component{
 
 export default connect(
   state => ({
-    testStore: state
+    testStore: state.adduser
   }),
   dispatch => ({
     onAddUser: (userName) => {

@@ -11,21 +11,11 @@ import UsersList from './components/userslist.js'
 import User from './components/user.js'
 import AddUser from './components/adduser.js'
 
-const initialState = [];
+import reducer from './components/reducers'
 
-// Редьюсер получает предыдущий state и action и возвращает новый state, обновляет store при выстреле action
-function playlist(state = initialState, action){
-    if(action.type === 'ADD_USER'){
-        return [
-            ...state,
-            action.payload
-        ];
-    }
-    return state;
-}
 
 // Cоздать новый store
-const store = createStore(playlist);
+const store = createStore(reducer);
 
 // Передача в качестве аргумента созданный store, который будет доступен каждому child-компоненту провайдера
 render(
@@ -34,31 +24,3 @@ render(
     </Provider>,
     document.getElementById('app')
 );
-
-
-
-
-
-
-
-
-// const addTrackBtn = document.querySelector('.addTrack');
-// const trackInp = document.getElementById('trackInp');
-// const list = document.getElementById('list');
-
-// store.subscribe(() => {     // Подписка на изменения в store
-//     console.log('subscribe', store.getState());
-//     list.innerHTML = '';
-//     trackInp.value = '';
-//     store.getState().forEach(track => {
-//         const li = document.createElement('li');
-//         li.textContent = track;
-//         list.appendChild(li);
-//     })
-// })
-
-// addTrackBtn.addEventListener('click', () => {
-//     trackInp.value;
-//     store.dispatch({ type: 'ADD_TRACK', payload: trackInp.value });   // Выстрелить action с нужным типом и данными
-//     console.log('track name', trackInp.value);
-// })

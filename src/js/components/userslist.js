@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import User from './user.js'
 
-//key={user.id}
 class UsersList extends Component{
   render(){
     return(
@@ -19,7 +18,7 @@ class UsersList extends Component{
 
 export default connect(
   state => ({
-    testStore: state
+    testStore: state.adduser
   }),
   dispatch => ({})
 )(UsersList);
