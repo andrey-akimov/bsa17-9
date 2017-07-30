@@ -17,9 +17,9 @@ class UsersList extends Component{
 
     let userId = user.id;
     let newArr = this.props.stateFromReducer.filter(function(user){
-      console.log(user.id != userId);
       return user.id != userId;
     });
+    console.log(newArr);
     // this.setState({ users: newArr });
     this.props.onDeleteUser(newArr);
   }
