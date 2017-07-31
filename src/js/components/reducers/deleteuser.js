@@ -4,7 +4,10 @@ const initialState = [];
 export default function deleteUser(state = initialState, action){
     if(action.type === 'DELETE_USER'){
         console.log('from deleteuser.js', action.payload);
-        return action.payload;
+        return [
+            ...state,
+            action.payload
+        ];
     }
     return state;
 }
