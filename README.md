@@ -1,3 +1,3 @@
 # bsa17-9
 
-just run index.html
+just open index.html in your browser
