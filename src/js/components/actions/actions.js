@@ -1,4 +1,4 @@
-export function onAddUser (userName) {
+export function onAddUser(userName) {
     const action = {
         type: 'ADD_USER',
         payload: userName
@@ -6,7 +6,7 @@ export function onAddUser (userName) {
     return action;
 }
 
-export function onFindUser (userName) {
+export function onFindUser(userName) {
     const action = {
         type: 'FIND_USER',
         payload: userName
@@ -14,7 +14,7 @@ export function onFindUser (userName) {
     return action;
 }
 
-export function onDeleteUser (userName) {
+export function onDeleteUser(userName) {
     const action = {
         type: 'DELETE_USER',
         payload: userName

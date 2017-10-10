@@ -1,11 +1,11 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
-import adduser from './adduser'
-import filteruser from './filteruser'
-import deleteuser from './deleteuser'
+import addUser from './addUser';
+import filterUser from './filterUser';
+import deleteUser from './deleteUser';
 
 export default combineReducers({
-  adduser,
-  filteruser,
-  deleteuser
+    addUser,
+    filterUser,
+    deleteUser
 });
