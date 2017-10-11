@@ -42,5 +42,4 @@ function mapStateToProps(state) {
     };
 }
 
-const AddUserConnected = connect(mapStateToProps, mapDispatchToProps)(AddUser);
-export default AddUserConnected;
+export default connect(mapStateToProps, mapDispatchToProps)(AddUser);

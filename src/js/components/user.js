@@ -11,7 +11,7 @@ class User extends Component {
 
     deleteUser(user) {
         let name = user;
-        let newState = this.props.stateFromReducer.filter(function(user) {
+        let newState = this.props.addUser.filter(function(user) {
             return user.name != name;
         });
         this.props.onDeleteUser(newState);
@@ -29,15 +29,15 @@ class User extends Component {
     }
 }
 
+// >>>>Сделать это в UserList.js!<<<<
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
 function mapStateToProps(state) {
     return {
-        stateFromReducer: state.addUser
+        addUser: state.addUser
     };
 }
 
-const UserConnected = connect(mapStateToProps, mapDispatchToProps)(User);
-export default UserConnected;
+export default connect(mapStateToProps, mapDispatchToProps)(User);

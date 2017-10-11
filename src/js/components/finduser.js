@@ -26,11 +26,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actions, dispatch);
 }
 
-function mapStateToProps(state) {
-    return {
-        stateFromReducer: state.addUser.filter(user => user.name.includes(state.filteruser))
-    };
-}
-
-const FindUserConnected = connect(mapStateToProps, mapDispatchToProps)(FindUser);
-export default FindUserConnected;
+export default connect(undefined, mapDispatchToProps)(FindUser);

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import AddUser from './adduser.js';
-import FindUser from './finduser.js';
-import UsersList from './userslist.js';
+import AddUser from './AddUser';
+import FindUser from './FindUser';
+import UsersList from './UsersList';
 
 class App extends Component {
     render() {
