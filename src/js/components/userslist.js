@@ -7,7 +7,7 @@ class UsersList extends Component {
     render() {
         return (
             <ul id="userList">
-                {this.props.addUser.map(function(user) {
+                {this.props.users.map(function(user) {
                     return <User key={user.id}> {user.name} </User>;
                 })}
             </ul>
@@ -15,10 +15,8 @@ class UsersList extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        addUser: state.addUser
-    };
-}
+const mapStateToProps = state => ({
+    users: state.users
+});
 
 export default connect(mapStateToProps)(UsersList);

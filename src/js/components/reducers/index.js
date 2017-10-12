@@ -1,11 +1,51 @@
-import { combineReducers } from 'redux';
+const initialState = {
+    users: [
+        {
+            name: 'Andrey',
+            id: 1
+        },
+        {
+            name: 'Bob',
+            id: 2
+        },
+        {
+            name: 'John',
+            id: 3
+        }
+    ],
+    findUser: ''
+};
 
-import addUser from './addUser';
-import filterUser from './filterUser';
-import deleteUser from './deleteUser';
+function reducer(state = initialState, action) {
+    switch (action.type) {
+        case 'ADD_USER':
+            return {
+                users: [
+                    ...state.users,
+                    {
+                        name: action.payload,
+                        id: Date.now()
+                    }
+                ],
+                findUser: state.findUser
+            };
+            break;
+        case 'DELETE_USER':
+            return {
+                users: state.users.filter(user => user.name != action.payload),
+                findUser: state.findUser
+            };
+            break;
+        case 'FIND_USER':
+            return {
+                users: state.users,
+                findUser: state.findUser
+            };
+            break;
 
-export default combineReducers({
-    addUser,
-    filterUser,
-    deleteUser
-});
+        default:
+            return state;
+            break;
+    }
+}
+export default reducer;

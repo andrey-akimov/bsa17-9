@@ -22,8 +22,6 @@ class FindUser extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(actions, dispatch);
-}
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export default connect(undefined, mapDispatchToProps)(FindUser);

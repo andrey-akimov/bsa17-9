@@ -11,11 +11,7 @@ class AddUser extends Component {
 
     addUser() {
         if (this.refs.input.value != '') {
-            let newUser = {
-                name: this.refs.input.value,
-                id: Date.now()
-            };
-            this.props.onAddUser(newUser);
+            this.props.onAddUser(this.refs.input.value);
             this.refs.input.value = '';
         } else {
             return false;
@@ -23,6 +19,7 @@ class AddUser extends Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <div id="input-form">
                 <input type="text" ref="input" placeholder="Add new user" />
@@ -32,14 +29,6 @@ class AddUser extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(actions, dispatch);
-}
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
-function mapStateToProps(state) {
-    return {
-        stateFromReducer: state.adduser
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddUser);
+export default connect(undefined, mapDispatchToProps)(AddUser);
