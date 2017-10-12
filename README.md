@@ -1,6 +1,6 @@
 # bsa17-9
 
-**just open index.html in your browser**
+**Just open index.html in your browser**
 ----------
 
 Academy 2017: React_part 2. Александр Ковалев JS-9
