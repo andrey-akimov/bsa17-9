@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import * as actions from './actions/actions';
 
 class User extends Component {
@@ -8,7 +7,7 @@ class User extends Component {
         return (
             <li>
                 {this.props.children}
-                <span className="delete" onClick={() => this.props.onDeleteUser(this.props.children[1])}>
+                <span className="delete" onClick={() => this.props.onDeleteUser(this.props.children)}>
                     x
                 </span>
             </li>
@@ -16,7 +15,4 @@ class User extends Component {
     }
 }
 
-// >>>>Сделать это в UserList.js!<<<<
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
-
-export default connect(undefined, mapDispatchToProps)(User);
+export default User;

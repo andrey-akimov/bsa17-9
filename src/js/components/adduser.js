@@ -19,7 +19,6 @@ class AddUser extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div id="input-form">
                 <input type="text" ref="input" placeholder="Add new user" />

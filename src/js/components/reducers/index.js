@@ -31,6 +31,7 @@ function reducer(state = initialState, action) {
             };
             break;
         case 'DELETE_USER':
+            console.log(action.payload);
             return {
                 users: state.users.filter(user => user.name != action.payload),
                 findUser: state.findUser
