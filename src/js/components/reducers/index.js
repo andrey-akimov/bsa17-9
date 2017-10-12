@@ -39,7 +39,7 @@ function reducer(state = initialState, action) {
         case 'FIND_USER':
             return {
                 users: state.users,
-                findUser: state.findUser
+                findUser: action.payload.toLowerCase()
             };
             break;
 

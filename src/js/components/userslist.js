@@ -16,7 +16,7 @@ class UsersList extends Component {
 }
 
 const mapStateToProps = state => ({
-    users: state.users
+    users: state.users.filter(user => user.name.toLowerCase().includes(state.findUser))
 });
 
 export default connect(mapStateToProps)(UsersList);
